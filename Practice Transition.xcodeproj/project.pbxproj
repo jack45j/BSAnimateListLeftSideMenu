@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,10 @@
 		46BF5EEF2577CD970054D04B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BF5EED2577CD970054D04B /* Main.storyboard */; };
 		46BF5EF12577CD970054D04B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BF5EF02577CD970054D04B /* Assets.xcassets */; };
 		46BF5EF42577CD970054D04B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BF5EF22577CD970054D04B /* LaunchScreen.storyboard */; };
+		46BF5EFD2577CE020054D04B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5EFC2577CE020054D04B /* SideMenuViewController.swift */; };
+		46BF5F0E2577EDD20054D04B /* SideMenuNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5F0D2577EDD20054D04B /* SideMenuNavigationViewController.swift */; };
+		46BF5F2025791AB90054D04B /* SideMenuAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5F1F25791AB90054D04B /* SideMenuAnimatedTransitioning.swift */; };
+		5BFD3FBC99D8F3FC14E76665 /* Pods_Practice_Transition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B3CD5E99457B6C258D68CD /* Pods_Practice_Transition.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,12 @@
 		46BF5EF02577CD970054D04B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46BF5EF32577CD970054D04B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46BF5EF52577CD970054D04B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46BF5EFC2577CE020054D04B /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		46BF5F0D2577EDD20054D04B /* SideMenuNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationViewController.swift; sourceTree = "<group>"; };
+		46BF5F1F25791AB90054D04B /* SideMenuAnimatedTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		7B0C56522C6C61325CDBF449 /* Pods-Practice Transition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice Transition.release.xcconfig"; path = "Target Support Files/Pods-Practice Transition/Pods-Practice Transition.release.xcconfig"; sourceTree = "<group>"; };
+		C16E1E56E7E919FF209F8EDB /* Pods-Practice Transition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice Transition.debug.xcconfig"; path = "Target Support Files/Pods-Practice Transition/Pods-Practice Transition.debug.xcconfig"; sourceTree = "<group>"; };
+		D8B3CD5E99457B6C258D68CD /* Pods_Practice_Transition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice_Transition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BFD3FBC99D8F3FC14E76665 /* Pods_Practice_Transition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46810D74A8CE13979341324C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8B3CD5E99457B6C258D68CD /* Pods_Practice_Transition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		46BF5EDB2577CD970054D04B = {
 			isa = PBXGroup;
 			children = (
 				46BF5EE62577CD970054D04B /* Practice Transition */,
 				46BF5EE52577CD970054D04B /* Products */,
+				9CFFF3B723999BF2251B276B /* Pods */,
+				46810D74A8CE13979341324C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +80,24 @@
 				46BF5EE72577CD970054D04B /* AppDelegate.swift */,
 				46BF5EE92577CD970054D04B /* SceneDelegate.swift */,
 				46BF5EEB2577CD970054D04B /* ViewController.swift */,
+				46BF5EFC2577CE020054D04B /* SideMenuViewController.swift */,
+				46BF5F0D2577EDD20054D04B /* SideMenuNavigationViewController.swift */,
+				46BF5F1F25791AB90054D04B /* SideMenuAnimatedTransitioning.swift */,
 				46BF5EED2577CD970054D04B /* Main.storyboard */,
 				46BF5EF02577CD970054D04B /* Assets.xcassets */,
 				46BF5EF22577CD970054D04B /* LaunchScreen.storyboard */,
 				46BF5EF52577CD970054D04B /* Info.plist */,
 			);
 			path = "Practice Transition";
+			sourceTree = "<group>";
+		};
+		9CFFF3B723999BF2251B276B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C16E1E56E7E919FF209F8EDB /* Pods-Practice Transition.debug.xcconfig */,
+				7B0C56522C6C61325CDBF449 /* Pods-Practice Transition.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46BF5EF82577CD970054D04B /* Build configuration list for PBXNativeTarget "Practice Transition" */;
 			buildPhases = (
+				5DAA343E78840E1562A62617 /* [CP] Check Pods Manifest.lock */,
 				46BF5EE02577CD970054D04B /* Sources */,
 				46BF5EE12577CD970054D04B /* Frameworks */,
 				46BF5EE22577CD970054D04B /* Resources */,
+				E936A46603786A4EE799C270 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,14 +167,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5DAA343E78840E1562A62617 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Practice Transition-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E936A46603786A4EE799C270 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Practice Transition/Pods-Practice Transition-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Practice Transition/Pods-Practice Transition-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Practice Transition/Pods-Practice Transition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		46BF5EE02577CD970054D04B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BF5EFD2577CE020054D04B /* SideMenuViewController.swift in Sources */,
 				46BF5EEC2577CD970054D04B /* ViewController.swift in Sources */,
+				46BF5F2025791AB90054D04B /* SideMenuAnimatedTransitioning.swift in Sources */,
 				46BF5EE82577CD970054D04B /* AppDelegate.swift in Sources */,
 				46BF5EEA2577CD970054D04B /* SceneDelegate.swift in Sources */,
+				46BF5F0E2577EDD20054D04B /* SideMenuNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +363,7 @@
 		};
 		46BF5EF92577CD970054D04B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C16E1E56E7E919FF209F8EDB /* Pods-Practice Transition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +383,7 @@
 		};
 		46BF5EFA2577CD970054D04B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B0C56522C6C61325CDBF449 /* Pods-Practice Transition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
