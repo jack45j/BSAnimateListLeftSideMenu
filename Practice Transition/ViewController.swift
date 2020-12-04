@@ -7,25 +7,35 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class ViewController: UIViewController {
 
-	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		return SideMenuAnimatedTransitioning()
-	}
+	let firstButton: UIButton! = UIButton(type: .infoDark)
+	let firstLabel: UILabel! = UILabel()
+	let secondLabel: UILabel! = UILabel()
+	let thirdLabel: UILabel! = UILabel()
+	let fourthLabel: UILabel! = UILabel()
+	let fifthLabel: UILabel! = UILabel()
+	let sixthLabel: UILabel! = UILabel()
+	var views: [UIView] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		views += [self.firstButton, self.firstLabel, self.thirdLabel,
+				  self.fourthLabel, self.fifthLabel, self.sixthLabel]
 		
+		view.backgroundColor = .yellow
+		let tap = UITapGestureRecognizer(target: self, action: #selector(self.show(_:)))
+		view.addGestureRecognizer(tap)
+		firstButton.addAction(UIAction(handler: { _ in SideMenuSettings.shared.dismiss() }), for: .touchUpInside)
+		firstLabel.text = "First Label"
+		secondLabel.text = "Second Label"
+		thirdLabel.text = "Third Label"
+		fourthLabel.text = "Fourth Label"
+		fifthLabel.text = "Fifth Label"
+		sixthLabel.text = "Sixth Label"
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-			let navigation = SideMenuNavigationViewController(rootViewController: SideMenuViewController())
-			navigation.modalPresentationStyle = .custom
-			navigation.modalTransitionStyle = .crossDissolve
-			navigation.transitioningDelegate = self
-			self.present(navigation, animated: true, completion: nil)
-		})
+	@objc func show(_ sender: UITapGestureRecognizer? = nil) {
+		SideMenuSettings.shared.show(from: self, views: views)
 	}
 }

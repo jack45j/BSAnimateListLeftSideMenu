@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4649F1C3257AB39B00600FFA /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649F1C2257AB39B00600FFA /* UIView+Additions.swift */; };
+		4649F1C6257AB4EC00600FFA /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649F1C5257AB4EC00600FFA /* SideMenuManager.swift */; };
+		4649F1D0257AB9B100600FFA /* SideMenuTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649F1CF257AB9B100600FFA /* SideMenuTransitionController.swift */; };
 		46BF5EE82577CD970054D04B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5EE72577CD970054D04B /* AppDelegate.swift */; };
 		46BF5EEA2577CD970054D04B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5EE92577CD970054D04B /* SceneDelegate.swift */; };
 		46BF5EEC2577CD970054D04B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5EEB2577CD970054D04B /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4649F1C2257AB39B00600FFA /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		4649F1C5257AB4EC00600FFA /* SideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
+		4649F1CF257AB9B100600FFA /* SideMenuTransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitionController.swift; sourceTree = "<group>"; };
 		46BF5EE42577CD970054D04B /* Practice Transition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice Transition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BF5EE72577CD970054D04B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BF5EE92577CD970054D04B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +54,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4649F1C8257AB70700600FFA /* App Scene Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				46BF5EE72577CD970054D04B /* AppDelegate.swift */,
+				46BF5EE92577CD970054D04B /* SceneDelegate.swift */,
+			);
+			path = "App Scene Delegate";
+			sourceTree = "<group>";
+		};
+		4649F1CA257AB71400600FFA /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4649F1C5257AB4EC00600FFA /* SideMenuManager.swift */,
+				46BF5EFC2577CE020054D04B /* SideMenuViewController.swift */,
+				46BF5F0D2577EDD20054D04B /* SideMenuNavigationViewController.swift */,
+				46BF5F1F25791AB90054D04B /* SideMenuAnimatedTransitioning.swift */,
+				4649F1CF257AB9B100600FFA /* SideMenuTransitionController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		4649F1CC257AB71B00600FFA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4649F1C2257AB39B00600FFA /* UIView+Additions.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		46810D74A8CE13979341324C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,16 +112,14 @@
 		46BF5EE62577CD970054D04B /* Practice Transition */ = {
 			isa = PBXGroup;
 			children = (
-				46BF5EE72577CD970054D04B /* AppDelegate.swift */,
-				46BF5EE92577CD970054D04B /* SceneDelegate.swift */,
+				4649F1C8257AB70700600FFA /* App Scene Delegate */,
 				46BF5EEB2577CD970054D04B /* ViewController.swift */,
-				46BF5EFC2577CE020054D04B /* SideMenuViewController.swift */,
-				46BF5F0D2577EDD20054D04B /* SideMenuNavigationViewController.swift */,
-				46BF5F1F25791AB90054D04B /* SideMenuAnimatedTransitioning.swift */,
+				4649F1CA257AB71400600FFA /* SideMenu */,
 				46BF5EED2577CD970054D04B /* Main.storyboard */,
 				46BF5EF02577CD970054D04B /* Assets.xcassets */,
 				46BF5EF22577CD970054D04B /* LaunchScreen.storyboard */,
 				46BF5EF52577CD970054D04B /* Info.plist */,
+				4649F1CC257AB71B00600FFA /* Helper */,
 			);
 			path = "Practice Transition";
 			sourceTree = "<group>";
@@ -216,9 +249,12 @@
 			files = (
 				46BF5EFD2577CE020054D04B /* SideMenuViewController.swift in Sources */,
 				46BF5EEC2577CD970054D04B /* ViewController.swift in Sources */,
+				4649F1D0257AB9B100600FFA /* SideMenuTransitionController.swift in Sources */,
 				46BF5F2025791AB90054D04B /* SideMenuAnimatedTransitioning.swift in Sources */,
 				46BF5EE82577CD970054D04B /* AppDelegate.swift in Sources */,
 				46BF5EEA2577CD970054D04B /* SceneDelegate.swift in Sources */,
+				4649F1C6257AB4EC00600FFA /* SideMenuManager.swift in Sources */,
+				4649F1C3257AB39B00600FFA /* UIView+Additions.swift in Sources */,
 				46BF5F0E2577EDD20054D04B /* SideMenuNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
