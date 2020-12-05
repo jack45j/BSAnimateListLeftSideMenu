@@ -30,8 +30,8 @@ class SideMenuSettings: AnimationModel & AnimationProtocol {
 	var transitionController: SideMenuTransitionController?
 	
 	init(views: [UIView] = [],
-		 presentationDuration: TimeInterval = 0.3,
-		 dismissDuration: TimeInterval = 0.3) {
+		 presentationDuration: TimeInterval = 0.5,
+		 dismissDuration: TimeInterval = 0.5) {
 		self.views = views
 		self.presentationDuration = presentationDuration
 		self.dismissDuration = dismissDuration
