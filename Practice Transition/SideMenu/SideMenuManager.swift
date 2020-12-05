@@ -12,7 +12,7 @@ protocol AnimationProtocol {
 }
 
 protocol AnimationModel {
-	var sideMenuNavigationController: UINavigationController? { get }
+	var sideMenuNavigationController: UINavigationController? { get set }
 	var presentationDuration: TimeInterval { get }
 	var dismissDuration: TimeInterval { get }
 	var isPresent: Bool { get }
@@ -27,6 +27,7 @@ class SideMenuSettings: AnimationModel & AnimationProtocol {
 	var dismissDuration: TimeInterval
 	var sideMenuNavigationController: UINavigationController?
 	var isPresent: Bool = true
+	var transitionController: SideMenuTransitionController?
 	
 	init(views: [UIView] = [],
 		 presentationDuration: TimeInterval = 0.3,
@@ -44,7 +45,9 @@ class SideMenuSettings: AnimationModel & AnimationProtocol {
 		}
 		sideMenuNavigationController?.navigationBar.isHidden = true
 		sideMenuNavigationController!.modalPresentationStyle = .overFullScreen
-		let transitionController = SideMenuTransitionController(config: self)
+		if transitionController == nil {
+			transitionController = SideMenuTransitionController(config: self)
+		}
 		sideMenuNavigationController!.transitioningDelegate = transitionController
 		fromVC.present(sideMenuNavigationController!, animated: true, completion: completion)
 	}

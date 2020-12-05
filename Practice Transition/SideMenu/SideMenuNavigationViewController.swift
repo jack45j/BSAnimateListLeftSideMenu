@@ -9,15 +9,12 @@ import UIKit
 
 class SideMenuNavigationViewController: UINavigationController {
 	
-	private var transitionController: SideMenuTransitionController?
+//	private var transitionController: SideMenuTransitionController?
 	
 	override  var transitioningDelegate: UIViewControllerTransitioningDelegate? {
 		get {
-			guard transitionController == nil else { return transitionController }
-			transitionController = SideMenuTransitionController(config: SideMenuSettings.shared)
-			return transitionController
+			return SideMenuSettings.shared.transitionController
 		}
-
 		set {
 			
 		}

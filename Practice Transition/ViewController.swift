@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-	let firstButton: UIButton! = UIButton(type: .infoDark)
+	let firstButton: UIButton! = UIButton(type: .close)
 	let firstLabel: UILabel! = UILabel()
 	let secondLabel: UILabel! = UILabel()
 	let thirdLabel: UILabel! = UILabel()

@@ -11,17 +11,18 @@ import UIKit
 class SideMenuTransitionController: NSObject, UIViewControllerTransitioningDelegate {
 	
 	let config: AnimationModel
+	private var animationController: SideMenuAnimatedTransitioning?
 	
 	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		
-		return SideMenuAnimatedTransitioning(config: config)
+		return animationController
 	}
 	
 	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		return SideMenuAnimatedTransitioning(config: config)
+		return animationController
 	}
 	
 	init(config: AnimationModel) {
 		self.config = config
+		self.animationController = SideMenuAnimatedTransitioning(config: config)
 	}
 }

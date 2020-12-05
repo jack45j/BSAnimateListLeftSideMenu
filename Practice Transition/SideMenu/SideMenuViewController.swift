@@ -35,9 +35,10 @@ class SideMenuViewController: UIViewController, AnimationProtocol {
 		
 		stackView.snp.makeConstraints({ constraint in
 			constraint.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
-//			constraint.leading.equalTo(view).offset(20)
+			constraint.leading.greaterThanOrEqualTo(view).offset(20)
 			constraint.trailing.equalTo(view).inset(60)
 			constraint.height.greaterThanOrEqualTo(0)
+			
 		})
     }
 }
