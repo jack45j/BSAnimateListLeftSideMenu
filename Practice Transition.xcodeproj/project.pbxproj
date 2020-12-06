@@ -66,12 +66,11 @@
 			isa = PBXGroup;
 			children = (
 				4649F1C5257AB4EC00600FFA /* SideMenuManager.swift */,
-				4649F1F2257C574600600FFA /* SideMenuViewController.swift */,
 				46BF5F0D2577EDD20054D04B /* SideMenuNavigationViewController.swift */,
 				46BF5F1F25791AB90054D04B /* SideMenuAnimatedTransitioning.swift */,
 				4649F1CF257AB9B100600FFA /* SideMenuTransitionController.swift */,
-				4649F1E7257C543300600FFA /* MenuViewController.swift */,
 				4649F1EE257C566B00600FFA /* SideMenuSettings.swift */,
+				4649F1F2257C574600600FFA /* SideMenuViewController.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -105,6 +104,7 @@
 			children = (
 				4649F1C8257AB70700600FFA /* App Scene Delegate */,
 				46BF5EEB2577CD970054D04B /* ViewController.swift */,
+				4649F1E7257C543300600FFA /* MenuViewController.swift */,
 				4649F1CA257AB71400600FFA /* SideMenu */,
 				46BF5EED2577CD970054D04B /* Main.storyboard */,
 				46BF5EF02577CD970054D04B /* Assets.xcassets */,
@@ -272,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -327,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

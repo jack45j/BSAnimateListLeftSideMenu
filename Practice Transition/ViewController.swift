@@ -28,13 +28,18 @@ class ViewController: UIViewController {
 		view.backgroundColor = .yellow
 		let tap = UITapGestureRecognizer(target: self, action: #selector(self.show(_:)))
 		view.addGestureRecognizer(tap)
-		firstButton.addAction(UIAction(handler: { _ in SideMenuManager.shared.dismiss() }), for: .touchUpInside)
+		
+		firstButton.addTarget(self, action: #selector(self.dismissSM(_:)), for: .touchUpInside)
 		firstLabel.text = "First Label"
 		secondLabel.text = "Second Label"
 		thirdLabel.text = "Third Label"
 		fourthLabel.text = "Fourth Label"
 		fifthLabel.text = "Fifth Label"
 		sixthLabel.text = "Sixth Label"
+	}
+	
+	@objc func dismissSM(_ sender: UIButton!) {
+		SideMenuManager.shared.dismiss()
 	}
 	
 	@objc func show(_ sender: UITapGestureRecognizer? = nil) {

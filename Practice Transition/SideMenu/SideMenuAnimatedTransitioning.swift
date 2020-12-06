@@ -64,7 +64,6 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 			listAnimator.startAnimation()
 		}, delayFactor: 0.5)
 		
-		
 		presentAnimator.addCompletion { _ in transitionContext.completeTransition(true) }
 		presentAnimator.startAnimation()
 	}
