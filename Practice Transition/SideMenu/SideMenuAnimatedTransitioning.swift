@@ -8,26 +8,18 @@
 import Foundation
 import UIKit
 
-
-
 class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
-	
-	private var config: AnimationModel
-	
-	init(config: AnimationModel) {
-		self.config = config
-	}
-	
 	func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-		return config.presentationDuration
+		return SideMenuManager.shared.configurations.presentationDuration
 	}
 	
 	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+		let manager = SideMenuManager.shared
 		// 具體動畫實現
 		guard
-			let fromVC = transitionContext.viewController(forKey: config.isPresent ? .from : .to),
-			let nvVC = transitionContext.viewController(forKey: config.isPresent ? .to : .from) as? SideMenuNavigationViewController,
-			let rootVC = nvVC.viewControllers.first as? SideMenuViewController,
+			let fromVC = transitionContext.viewController(forKey: manager.isPresenting ? .to : .from),
+			let nvVC = transitionContext.viewController(forKey: manager.isPresenting ? .from : .to) as? SideMenuNavigationViewController,
+			let rootVC = nvVC.viewControllers.first as? SideMenuViewControllerProtocol,
 			let fromView = fromVC.view else { return }
 		
 		
@@ -36,53 +28,38 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 		
 		// TODO: 參數設定
 		// 轉場動畫初始化
-		if config.isPresent {
-			rootVC.views.forEach {
-				$0.alpha = 0
-				$0.transform = CGAffineTransform(translationX: -60, y: 0)
-			}
-			nvVC.view.alpha = 0
-			nvVC.view.frame = CGRect(x: 0, y: 0, width: 0, height: fromView.frame.height)
-		} else {
-			rootVC.views.forEach {
-				$0.alpha = 1
-				$0.transform = CGAffineTransform(translationX: 0, y: 0)
-			}
-			nvVC.view.alpha = 1
-			nvVC.view.frame = CGRect(x: 0, y: 0, width: 250, height: fromView.frame.height)
+		rootVC.views.forEach {
+			$0.alpha = manager.isPresenting ? 1 : 0
+			$0.transform = CGAffineTransform(translationX: manager.isPresenting ? 0 : -60, y: 0)
 		}
+		nvVC.view.alpha = manager.isPresenting ? 1 : 0
+		nvVC.view.frame = CGRect(x: 0, y: 0, width: manager.isPresenting ? manager.configurations.menuWidth : 0, height: fromView.frame.height)
 		nvVC.view.layoutIfNeeded()
 		
-		let presentAnimator = UIViewPropertyAnimator(duration: config.presentationDuration, curve: .easeIn, animations: nil)
-		let listAnimator = UIViewPropertyAnimator(duration: config.presentationDuration, curve: .linear, animations: nil)
+//		Animators
+		let presentAnimator = UIViewPropertyAnimator(duration: manager.configurations.presentationDuration, curve: .easeIn, animations: nil)
+		let listAnimator = UIViewPropertyAnimator(duration: manager.configurations.presentationDuration, curve: .linear, animations: nil)
 		
+//		SideMenu main view animation
 		presentAnimator.addAnimations {
-			if self.config.isPresent {
-				nvVC.view.alpha = 1
-				nvVC.view.frame = CGRect(x: 0, y: 0, width: 250, height: fromView.frame.height)
-			} else {
-				nvVC.view.alpha = 0
-				nvVC.view.frame = CGRect(x: 0, y: 0, width: 0, height: fromView.frame.height)
-			}
-			
+			nvVC.view.alpha = manager.isPresenting ? 0 : 1
+			nvVC.view.frame = CGRect(x: 0, y: 0,
+									 width: manager.isPresenting ? 0 : manager.configurations.menuWidth,
+									 height: fromView.frame.height)
 		}
 		
+//		SideMenu list items animations
 		for (index, view) in rootVC.views.enumerated() {
 			listAnimator.addAnimations({
-				UIViewPropertyAnimator(duration: self.config.presentationDuration, curve: .linear, animations: {
-					if self.config.isPresent {
-						view.alpha = 1
-						view.transform = .identity
-						nvVC.view.layoutIfNeeded()
-					} else {
-						view.alpha = 0
-						view.transform = CGAffineTransform(translationX: -60, y: 0)
-						nvVC.view.layoutIfNeeded()
-					}
+				UIViewPropertyAnimator(duration: manager.configurations.presentationDuration, curve: .linear, animations: {
+					view.alpha = manager.isPresenting ? 0 : 1
+					view.transform = manager.isPresenting ? CGAffineTransform(translationX: -60, y: 0) : .identity
+					nvVC.view.layoutIfNeeded()
 				}).startAnimation(afterDelay: Double(index)*0.1)
 			})
 		}
 		
+//		Start list items animations with delay
 		presentAnimator.addAnimations({
 			listAnimator.startAnimation()
 		}, delayFactor: 0.5)

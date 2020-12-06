@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import SnapKit
 
-class SideMenuViewController: UIViewController, AnimationProtocol {
+class SideMenuViewController: UIViewController, SideMenuViewControllerProtocol {
 	var stackView: UIStackView!
 	var views: [UIView] = []
 	
@@ -33,12 +32,9 @@ class SideMenuViewController: UIViewController, AnimationProtocol {
 		
 		view.addSubview(stackView)
 		
-		stackView.snp.makeConstraints({ constraint in
-			constraint.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
-//			constraint.leading.greaterThanOrEqualTo(view).offset(20)
-			constraint.trailing.equalTo(view).inset(60)
-			constraint.height.greaterThanOrEqualTo(0)
-		})
+		stackView.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint(item: stackView!, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: -24).isActive = true
+		NSLayoutConstraint(item: stackView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -60).isActive = true
 		view.layoutIfNeeded()
     }
 }

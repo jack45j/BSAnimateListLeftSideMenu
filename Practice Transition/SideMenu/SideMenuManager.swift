@@ -1,5 +1,5 @@
 //
-//  SideMenuSettings.swift
+//  SideMenuManager.swift
 //  Practice Transition
 //
 //  Created by Yi-Cheng Lin on 2020/12/5.
@@ -7,53 +7,35 @@
 
 import UIKit
 
-protocol AnimationProtocol {
-	var views: [UIView] { get }
-}
-
-protocol AnimationModel {
-	var sideMenuNavigationController: UINavigationController? { get set }
-	var presentationDuration: TimeInterval { get }
-	var dismissDuration: TimeInterval { get }
-	var isPresent: Bool { get }
-}
-
-class SideMenuSettings: AnimationModel & AnimationProtocol {
+class SideMenuManager {
 	
-	static let shared = SideMenuSettings()
+	static let shared = SideMenuManager()
 	
-	var views: [UIView]
-	var presentationDuration: TimeInterval
-	var dismissDuration: TimeInterval
-	var sideMenuNavigationController: UINavigationController?
-	var isPresent: Bool = true
-	var transitionController: SideMenuTransitionController?
+	var configurations: SettingsModel = SideMenuSettingsModel()
 	
-	init(views: [UIView] = [],
-		 presentationDuration: TimeInterval = 0.5,
-		 dismissDuration: TimeInterval = 0.5) {
-		self.views = views
-		self.presentationDuration = presentationDuration
-		self.dismissDuration = dismissDuration
+	private var sideMenuNavigationController: UINavigationController?
+	internal var transitionController: SideMenuTransitionController?
+	internal var isPresenting: Bool = false
+	
+	func show(from fromVC: UIViewController, sideMenuViewController: SideMenuViewControllerProtocol & UIViewController, completion: (() -> Void)? = nil) {
+		if sideMenuNavigationController == nil {
+			sideMenuNavigationController = SideMenuNavigationViewController(rootViewController: sideMenuViewController)
+		}
+		
+		sideMenuNavigationController?.navigationBar.isHidden = true
+		sideMenuNavigationController?.modalPresentationStyle = .overFullScreen
+		if transitionController == nil {
+			transitionController = SideMenuTransitionController()
+		}
+		sideMenuNavigationController?.transitioningDelegate = transitionController
+		fromVC.present(sideMenuNavigationController!, animated: true, completion: { self.isPresenting = true })
 	}
 	
 	func show(from fromVC: UIViewController, views: [UIView], completion: (() -> Void)? = nil) {
-		self.views = views
-		self.isPresent = true
-		if sideMenuNavigationController == nil {
-			sideMenuNavigationController = SideMenuNavigationViewController(rootViewController: SideMenuViewController(views: views))
-		}
-		sideMenuNavigationController?.navigationBar.isHidden = true
-		sideMenuNavigationController!.modalPresentationStyle = .overFullScreen
-		if transitionController == nil {
-			transitionController = SideMenuTransitionController(config: self)
-		}
-		sideMenuNavigationController!.transitioningDelegate = transitionController
-		fromVC.present(sideMenuNavigationController!, animated: true, completion: completion)
+		show(from: fromVC, sideMenuViewController: SideMenuViewController(views: views), completion: completion)
 	}
 	
 	func dismiss() {
-		self.isPresent = false
-		sideMenuNavigationController?.dismiss(animated: true, completion: nil)
+		sideMenuNavigationController?.dismiss(animated: true, completion: { self.isPresenting = false })
 	}
 }

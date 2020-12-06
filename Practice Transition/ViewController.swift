@@ -23,10 +23,12 @@ class ViewController: UIViewController {
 		views += [self.firstButton, self.firstLabel, self.thirdLabel,
 				  self.fourthLabel, self.fifthLabel, self.sixthLabel]
 		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.show(_:)))
+		
 		view.backgroundColor = .yellow
 		let tap = UITapGestureRecognizer(target: self, action: #selector(self.show(_:)))
 		view.addGestureRecognizer(tap)
-		firstButton.addAction(UIAction(handler: { _ in SideMenuSettings.shared.dismiss() }), for: .touchUpInside)
+		firstButton.addAction(UIAction(handler: { _ in SideMenuManager.shared.dismiss() }), for: .touchUpInside)
 		firstLabel.text = "First Label"
 		secondLabel.text = "Second Label"
 		thirdLabel.text = "Third Label"
@@ -36,6 +38,10 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func show(_ sender: UITapGestureRecognizer? = nil) {
-		SideMenuSettings.shared.show(from: self, views: views)
+		
+//		guard let vc = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? MenuViewController else { return }
+//		SideMenuManager.shared.show(from: self, sideMenuViewController: vc)
+		
+		SideMenuManager.shared.show(from: self, views: views)
 	}
 }
