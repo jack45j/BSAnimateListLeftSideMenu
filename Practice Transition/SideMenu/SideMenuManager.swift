@@ -12,10 +12,11 @@ class SideMenuManager {
 	static let shared = SideMenuManager()
 	var configurations: SettingsModel = SideMenuSettingsModel()
 	
+	var sideMenuViewController: (SideMenuViewControllerProtocol & UIViewController)?
 	private var sideMenuNavigationController: UINavigationController?
 	var transitionController: SideMenuTransitionController? = SideMenuTransitionController()
 	var isPresenting: Bool = false
-	var currentViewController: UIViewController?
+	private var currentViewController: UIViewController?
 	var views: [UIView]!
 	
 	func addScreenEdgeGesture(to viewController: UIViewController) {
@@ -29,44 +30,52 @@ class SideMenuManager {
 	@objc func handleGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
 		switch gestureRecognizer.state {
 		case .began:
-			print("Began")
 			show(from: currentViewController!, views: views)
+			transitionController?.animationController?.isInteraction = true
 			fallthrough
 		case .changed:
 			let width = configurations.menuWidth
 			let distance = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).x
 			let progress = distance / width
-			transitionController?.animationController?.fraction = progress
-			transitionController?.interactionController?.handle(state: .update(progress: progress))
+			transitionController?.animationController?.animate(with: progress)
 		case .ended:
-			print("End")
-		default: return // do nothing
+			transitionController?.animationController?.finishAnimate()
+			transitionController?.animationController?.isInteraction = false
+		default: return
 		}
 	}
 }
 
 extension SideMenuManager {
-	func show(from fromVC: UIViewController, sideMenuViewController: SideMenuViewControllerProtocol & UIViewController, completion: (() -> Void)? = nil) {
-		if sideMenuNavigationController == nil {
-			sideMenuNavigationController = SideMenuNavigationViewController(rootViewController: sideMenuViewController)
+	func show(from fromVC: UIViewController, interaction: Bool = false, completion: (() -> Void)? = nil) {
+		if sideMenuViewController == nil {
+			guard !views.isEmpty else {
+				print("You have to set views first. Call show(from:views:) instead.")
+				return
+			}
+			sideMenuViewController = SideMenuViewController(views: views)
 		}
-		
+		if sideMenuNavigationController == nil {
+			sideMenuNavigationController = SideMenuNavigationViewController(rootViewController: sideMenuViewController!)
+		}
+		sideMenuViewController?.views = views
 		sideMenuNavigationController?.navigationBar.isHidden = true
 		sideMenuNavigationController?.modalPresentationStyle = .overFullScreen
 		sideMenuNavigationController?.transitioningDelegate = transitionController
-		
+		transitionController?.animationController?.isInteraction = false
 		fromVC.present(sideMenuNavigationController!, animated: true, completion: { self.isPresenting = true })
 	}
 	
-	func show(from fromVC: UIViewController, views: [UIView], completion: (() -> Void)? = nil) {
-		show(from: fromVC, sideMenuViewController: SideMenuViewController(views: views), completion: completion)
+	func show(from fromVC: UIViewController, views: [UIView], interaction: Bool = false, completion: (() -> Void)? = nil) {
+		show(from: fromVC, completion: completion)
 	}
 	
-	func show(from fromVC: UIViewController, stackView: UIStackView, completion: (() -> Void)? = nil) {
+	func show(from fromVC: UIViewController, stackView: UIStackView, interaction: Bool = false, completion: (() -> Void)? = nil) {
 		show(from: fromVC, views: stackView.arrangedSubviews, completion: completion)
 	}
 	
 	func dismiss() {
+		transitionController?.animationController?.isInteraction = false
 		sideMenuNavigationController?.dismiss(animated: true, completion: { self.isPresenting = false })
 	}
 }

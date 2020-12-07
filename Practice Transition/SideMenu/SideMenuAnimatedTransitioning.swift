@@ -10,10 +10,16 @@ import UIKit
 
 class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
 	var animators: [UIViewPropertyAnimator] = []
-	var fraction: CGFloat = 0 {
-		didSet {
-			animators.forEach { $0.fractionComplete = oldValue }
+	var isInteraction: Bool = false
+	
+	func animate(with fraction: CGFloat) {
+		animators.forEach {
+			$0.fractionComplete = fraction
 		}
+	}
+	
+	func finishAnimate() {
+		animators.forEach { $0.continueAnimation(withTimingParameters: nil, durationFactor: 0) }
 	}
 	
 	func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -73,10 +79,10 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 		
 		presentAnimator.addCompletion { _ in transitionContext.completeTransition(true) }
 		animators.append(presentAnimator)
-//		presentAnimator.startAnimation()
+		if !isInteraction { presentAnimator.startAnimation() }
 	}
 	
 	func animationEnded(_ transitionCompleted: Bool) {
-//		print("動畫完成")
+		animators.removeAll()
 	}
 }

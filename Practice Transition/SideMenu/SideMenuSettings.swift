@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol SideMenuViewControllerProtocol {
-	var views: [UIView] { get }
+	var views: [UIView] { get set }
 }
 
 protocol SideMenuAnimationSettings {

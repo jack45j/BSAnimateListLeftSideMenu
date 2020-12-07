@@ -10,20 +10,20 @@ import UIKit
 
 class SideMenuInteractionController: UIPercentDrivenInteractiveTransition {
 		
-	enum State { case
-		update(progress: CGFloat),
-		finish,
-		cancel
-	}
-	
-	func handle(state: State) {
-		switch state {
-		case .update(let progress):
-			update(progress)
-		case .finish:
-			finish()
-		case .cancel:
-			cancel()
-		}
-	}
+//	enum State { case
+//		update(progress: CGFloat),
+//		finish,
+//		cancel
+//	}
+//
+//	func handle(state: State) {
+//		switch state {
+//		case .update(let progress):
+//			update(progress)
+//		case .finish:
+//			finish()
+//		case .cancel:
+//			cancel()
+//		}
+//	}
 }
