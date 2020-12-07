@@ -27,6 +27,6 @@ struct SideMenuSettingsModel: SettingsModel {
 		let screenWidth = UIScreen.main.bounds.width
 		return min(screenWidth * 0.5, 240)
 	}()
-	var presentationDuration: TimeInterval = 0.5
-	var dismissDuration: TimeInterval = 0.5
+	var presentationDuration: TimeInterval = 0.3
+	var dismissDuration: TimeInterval = 0.3
 }

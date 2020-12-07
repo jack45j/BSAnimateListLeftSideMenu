@@ -25,10 +25,12 @@ class ViewController: UIViewController {
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.show(_:)))
 		
-		view.backgroundColor = .yellow
-		let tap = UITapGestureRecognizer(target: self, action: #selector(self.show(_:)))
-		view.addGestureRecognizer(tap)
+		view.backgroundColor = .white
 		
+//		let tap = UITapGestureRecognizer(target: self, action: #selector(self.show(_:)))
+		
+//		view.addGestureRecognizer(tap)
+		SideMenuManager.shared.addScreenEdgeGesture(to: self)
 		firstButton.addTarget(self, action: #selector(self.dismissSM(_:)), for: .touchUpInside)
 		firstLabel.text = "First Label"
 		secondLabel.text = "Second Label"
@@ -36,6 +38,9 @@ class ViewController: UIViewController {
 		fourthLabel.text = "Fourth Label"
 		fifthLabel.text = "Fifth Label"
 		sixthLabel.text = "Sixth Label"
+		
+		SideMenuManager.shared.views = views
+		
 	}
 	
 	@objc func dismissSM(_ sender: UIButton!) {
