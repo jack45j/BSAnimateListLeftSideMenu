@@ -11,7 +11,6 @@ import UIKit
 class SideMenuTransitionController: NSObject, UIViewControllerTransitioningDelegate {
 	
 	var animationController: SideMenuAnimatedTransitioning? = SideMenuAnimatedTransitioning()
-	var interactionController: SideMenuInteractionController! = SideMenuInteractionController()
 	
 	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		return animationController
@@ -22,10 +21,10 @@ class SideMenuTransitionController: NSObject, UIViewControllerTransitioningDeleg
 	}
 	
 	func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-		return interactionController
+		return UIPercentDrivenInteractiveTransition()
 	}
 	
 	func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-		return interactionController
+		return UIPercentDrivenInteractiveTransition()
 	}
 }

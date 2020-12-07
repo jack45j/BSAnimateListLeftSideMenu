@@ -18,7 +18,10 @@ class SideMenuManager {
 	var isPresenting: Bool = false
 	private var currentViewController: UIViewController?
 	var views: [UIView]!
-	
+}
+
+// MARK: Gesture
+extension SideMenuManager {
 	func addScreenEdgeGesture(to viewController: UIViewController) {
 		let gesture = UIScreenEdgePanGestureRecognizer(target: self,
 													   action: #selector(self.handleGesture(_:)))
@@ -46,6 +49,7 @@ class SideMenuManager {
 	}
 }
 
+// MARK: show/dismiss
 extension SideMenuManager {
 	func show(from fromVC: UIViewController, interaction: Bool = false, completion: (() -> Void)? = nil) {
 		if sideMenuViewController == nil {
@@ -58,7 +62,7 @@ extension SideMenuManager {
 		if sideMenuNavigationController == nil {
 			sideMenuNavigationController = SideMenuNavigationViewController(rootViewController: sideMenuViewController!)
 		}
-		sideMenuViewController?.views = views
+		
 		sideMenuNavigationController?.navigationBar.isHidden = true
 		sideMenuNavigationController?.modalPresentationStyle = .overFullScreen
 		sideMenuNavigationController?.transitioningDelegate = transitionController

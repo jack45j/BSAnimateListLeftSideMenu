@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 		views += [self.firstButton, self.firstLabel, self.thirdLabel,
 				  self.fourthLabel, self.fifthLabel, self.sixthLabel]
 		guard let vc = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? MenuViewController else { return }
-//		SideMenuManager.shared.sideMenuViewController = vc
+		SideMenuManager.shared.sideMenuViewController = vc
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.show(_:)))
 		view.backgroundColor = .white
 		SideMenuManager.shared.addScreenEdgeGesture(to: self)
@@ -34,7 +34,6 @@ class ViewController: UIViewController {
 		fourthLabel.text = "Fourth Label"
 		fifthLabel.text = "Fifth Label"
 		sixthLabel.text = "Sixth Label"
-		
 		SideMenuManager.shared.views = views
 		
 	}
