@@ -13,6 +13,7 @@
 		4649F1E8257C543300600FFA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649F1E7257C543300600FFA /* MenuViewController.swift */; };
 		4649F1EF257C566B00600FFA /* SideMenuSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649F1EE257C566B00600FFA /* SideMenuSettings.swift */; };
 		4649F1F3257C574600600FFA /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649F1F2257C574600600FFA /* SideMenuViewController.swift */; };
+		4649F201257D106100600FFA /* SideMenuInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649F200257D106100600FFA /* SideMenuInteractionController.swift */; };
 		46BF5EE82577CD970054D04B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5EE72577CD970054D04B /* AppDelegate.swift */; };
 		46BF5EEA2577CD970054D04B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5EE92577CD970054D04B /* SceneDelegate.swift */; };
 		46BF5EEC2577CD970054D04B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF5EEB2577CD970054D04B /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		4649F1E7257C543300600FFA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4649F1EE257C566B00600FFA /* SideMenuSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuSettings.swift; sourceTree = "<group>"; };
 		4649F1F2257C574600600FFA /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		4649F200257D106100600FFA /* SideMenuInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuInteractionController.swift; sourceTree = "<group>"; };
 		46BF5EE42577CD970054D04B /* Practice Transition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice Transition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BF5EE72577CD970054D04B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BF5EE92577CD970054D04B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				46BF5F0D2577EDD20054D04B /* SideMenuNavigationViewController.swift */,
 				46BF5F1F25791AB90054D04B /* SideMenuAnimatedTransitioning.swift */,
 				4649F1CF257AB9B100600FFA /* SideMenuTransitionController.swift */,
+				4649F200257D106100600FFA /* SideMenuInteractionController.swift */,
 				4649F1EE257C566B00600FFA /* SideMenuSettings.swift */,
 				4649F1F2257C574600600FFA /* SideMenuViewController.swift */,
 			);
@@ -189,6 +192,7 @@
 				46BF5EEC2577CD970054D04B /* ViewController.swift in Sources */,
 				4649F1D0257AB9B100600FFA /* SideMenuTransitionController.swift in Sources */,
 				46BF5F2025791AB90054D04B /* SideMenuAnimatedTransitioning.swift in Sources */,
+				4649F201257D106100600FFA /* SideMenuInteractionController.swift in Sources */,
 				4649F1F3257C574600600FFA /* SideMenuViewController.swift in Sources */,
 				4649F1EF257C566B00600FFA /* SideMenuSettings.swift in Sources */,
 				46BF5EE82577CD970054D04B /* AppDelegate.swift in Sources */,
