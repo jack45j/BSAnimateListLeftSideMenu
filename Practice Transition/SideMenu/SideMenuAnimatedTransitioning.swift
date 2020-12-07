@@ -9,6 +9,13 @@ import Foundation
 import UIKit
 
 class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
+	var animators: [UIViewPropertyAnimator] = []
+	var fraction: CGFloat = 0 {
+		didSet {
+			animators.forEach { $0.fractionComplete = oldValue }
+		}
+	}
+	
 	func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
 		return SideMenuManager.shared.configurations.presentationDuration
 	}
@@ -65,7 +72,8 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 		}, delayFactor: 0.5)
 		
 		presentAnimator.addCompletion { _ in transitionContext.completeTransition(true) }
-		presentAnimator.startAnimation()
+		animators.append(presentAnimator)
+//		presentAnimator.startAnimation()
 	}
 	
 	func animationEnded(_ transitionCompleted: Bool) {

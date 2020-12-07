@@ -34,9 +34,9 @@ class SideMenuManager {
 			fallthrough
 		case .changed:
 			let width = configurations.menuWidth
-			let distance = gestureRecognizer.translation(in: currentViewController?.view).x / width
+			let distance = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).x
 			let progress = distance / width
-			print(progress)
+			transitionController?.animationController?.fraction = progress
 			transitionController?.interactionController?.handle(state: .update(progress: progress))
 		case .ended:
 			print("End")

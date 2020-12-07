@@ -10,7 +10,7 @@ import UIKit
 
 class SideMenuTransitionController: NSObject, UIViewControllerTransitioningDelegate {
 	
-	private var animationController: SideMenuAnimatedTransitioning? = SideMenuAnimatedTransitioning()
+	var animationController: SideMenuAnimatedTransitioning? = SideMenuAnimatedTransitioning()
 	var interactionController: SideMenuInteractionController! = SideMenuInteractionController()
 	
 	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
