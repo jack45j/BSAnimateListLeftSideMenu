@@ -72,7 +72,8 @@
 				4649F1EE257C566B00600FFA /* SideMenuSettings.swift */,
 				4649F1F2257C574600600FFA /* SideMenuViewController.swift */,
 			);
-			path = Sources;
+			name = Sources;
+			path = BSAnimateListLeftSideMenu/Sources;
 			sourceTree = "<group>";
 		};
 		4649F1CC257AB71B00600FFA /* Helper */ = {
@@ -86,6 +87,7 @@
 		46BF5EDB2577CD970054D04B = {
 			isa = PBXGroup;
 			children = (
+				4649F1CA257AB71400600FFA /* Sources */,
 				46BF5EE62577CD970054D04B /* BSAnimateListLeftSideMenu */,
 				46BF5EE52577CD970054D04B /* Products */,
 			);
@@ -105,7 +107,6 @@
 				4649F1C8257AB70700600FFA /* App Scene Delegate */,
 				46BF5EEB2577CD970054D04B /* ViewController.swift */,
 				4649F1E7257C543300600FFA /* MenuViewController.swift */,
-				4649F1CA257AB71400600FFA /* Sources */,
 				46BF5EED2577CD970054D04B /* Main.storyboard */,
 				46BF5EF02577CD970054D04B /* Assets.xcassets */,
 				46BF5EF22577CD970054D04B /* LaunchScreen.storyboard */,

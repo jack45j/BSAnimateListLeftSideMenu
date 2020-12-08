@@ -18,7 +18,7 @@ let package = Package(
         .target(
             name: "BSAnimateListLeftSideMenu",
             dependencies: [],
-			path: "BSAnimateListLeftSideMenu/Sources"),
+			path: "Sources"),
         .testTarget(
             name: "BSAnimateListLeftSideMenuTests",
             dependencies: ["BSAnimateListLeftSideMenu"]),
