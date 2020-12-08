@@ -10,6 +10,7 @@ import UIKit
 class SideMenuViewController: UIViewController, SideMenuViewControllerProtocol {
 	var stackView: UIStackView!
 	var views: [UIView] = []
+//	let sideMenu = SideMenuManager.shared.sideMenuViewController
 	
 	init(views: [UIView]) {
 		self.views = views

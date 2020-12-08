@@ -54,7 +54,7 @@ extension SideMenuManager {
 	func show(from fromVC: UIViewController, interaction: Bool = false, completion: (() -> Void)? = nil) {
 		if sideMenuViewController == nil {
 			guard !views.isEmpty else {
-				print("You have to set views first. Call show(from:views:) instead.")
+				print("You have to set SideMenuViewController or list views first.")
 				return
 			}
 			sideMenuViewController = SideMenuViewController(views: views)

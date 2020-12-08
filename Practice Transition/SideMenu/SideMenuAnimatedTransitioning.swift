@@ -11,6 +11,7 @@ import UIKit
 class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
 	var animators: [UIViewPropertyAnimator] = []
 	var isInteraction: Bool = false
+	var blurView: UIVisualEffectView?
 	
 	func animate(with fraction: CGFloat) {
 		animators.forEach {
@@ -26,6 +27,15 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 		return SideMenuManager.shared.configurations.presentationDuration
 	}
 	
+	func setupBlurView() {
+		if blurView == nil {
+			let blurEffect = UIBlurEffect(style: .dark)
+			let blurview = UIVisualEffectView(effect: blurEffect)
+			blurview.frame = UIScreen.main.bounds
+			self.blurView = blurview
+		}
+	}
+	
 	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 		let manager = SideMenuManager.shared
 		// 具體動畫實現
@@ -35,25 +45,32 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 			let rootVC = nvVC.viewControllers.first as? SideMenuViewControllerProtocol,
 			let fromView = fromVC.view else { return }
 		
-		
 		let containerView = transitionContext.containerView
 		containerView.addSubview(nvVC.view)
 		
-		// TODO: 參數設定
+		setupBlurView()
+		if let blurView = blurView {
+			containerView.insertSubview(blurView, at: 0)
+		}
+		
 		// 轉場動畫初始化
 		rootVC.views.forEach {
 			$0.alpha = manager.isPresenting ? 1 : 0
 			$0.transform = CGAffineTransform(translationX: manager.isPresenting ? 0 : -60, y: 0)
 		}
+		blurView?.alpha = manager.isPresenting ? 1 : 0
 		nvVC.view.alpha = manager.isPresenting ? 1 : 0
 		nvVC.view.frame = CGRect(x: 0, y: 0, width: manager.isPresenting ? manager.configurations.menuWidth : 0, height: fromView.frame.height)
 		nvVC.view.layoutIfNeeded()
 		
-//		Animators
-		let presentAnimator = UIViewPropertyAnimator(duration: manager.configurations.presentationDuration, curve: .easeIn, animations: nil)
-		let listAnimator = UIViewPropertyAnimator(duration: manager.configurations.presentationDuration, curve: .linear, animations: nil)
+		// Animators
+		let presentAnimator = UIViewPropertyAnimator(duration: manager.isPresenting ?
+														manager.configurations.dismissDuration :
+														manager.configurations.presentationDuration,
+													 curve: .easeOut,
+													 animations: nil)
 		
-//		SideMenu main view animation
+		// SideMenu main view animation
 		presentAnimator.addAnimations {
 			nvVC.view.alpha = manager.isPresenting ? 0 : 1
 			nvVC.view.frame = CGRect(x: 0, y: 0,
@@ -61,27 +78,25 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 									 height: fromView.frame.height)
 		}
 		
-//		SideMenu list items animations
-		for (index, view) in rootVC.views.enumerated() {
-			listAnimator.addAnimations({
-				UIViewPropertyAnimator(duration: manager.configurations.presentationDuration, curve: .linear, animations: {
-					view.alpha = manager.isPresenting ? 0 : 1
-					view.transform = manager.isPresenting ? CGAffineTransform(translationX: -60, y: 0) : .identity
-					nvVC.view.layoutIfNeeded()
-				}).startAnimation(afterDelay: Double(index)*0.1)
-			})
+		presentAnimator.addAnimations {
+			self.blurView?.alpha = manager.isPresenting ? 0 : 1
 		}
 		
-//		Start list items animations with delay
-		presentAnimator.addAnimations({
-			listAnimator.startAnimation()
-		}, delayFactor: 0.5)
+		// SideMenu list items animations
+		for (index, view) in rootVC.views.enumerated() {
+			presentAnimator.addAnimations({
+				view.alpha = manager.isPresenting ? 0 : 1
+				view.transform = manager.isPresenting ? CGAffineTransform(translationX: -60, y: 0) : .identity
+				nvVC.view.layoutIfNeeded()
+			}, delayFactor: CGFloat((Double(index) / Double(rootVC.views.count)) * 0.7 + 0.3))
+		}
 		
 		presentAnimator.addCompletion { _ in transitionContext.completeTransition(true) }
 		animators.append(presentAnimator)
 		if !isInteraction { presentAnimator.startAnimation() }
 	}
 	
+	// Remove all animators after animation ended.
 	func animationEnded(_ transitionCompleted: Bool) {
 		animators.removeAll()
 	}

@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 		guard let vc = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? MenuViewController else { return }
 		SideMenuManager.shared.sideMenuViewController = vc
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.show(_:)))
-		view.backgroundColor = .white
+		view.backgroundColor = .systemBackground
 		SideMenuManager.shared.addScreenEdgeGesture(to: self)
 		firstButton.addTarget(self, action: #selector(self.dismissSM(_:)), for: .touchUpInside)
 		firstLabel.text = "First Label"
@@ -35,7 +35,9 @@ class ViewController: UIViewController {
 		fifthLabel.text = "Fifth Label"
 		sixthLabel.text = "Sixth Label"
 		SideMenuManager.shared.views = views
-		
+		print(SideMenuManager.shared.configurations.maxMenuWidth)
+		SideMenuManager.shared.configurations.menuWidthInScreenScale = 0.5
+		print(SideMenuManager.shared.configurations.maxMenuWidth)
 	}
 	
 	@objc func dismissSM(_ sender: UIButton!) {
