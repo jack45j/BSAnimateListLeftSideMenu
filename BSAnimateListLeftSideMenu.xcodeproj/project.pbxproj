@@ -62,7 +62,7 @@
 			path = "App Scene Delegate";
 			sourceTree = "<group>";
 		};
-		4649F1CA257AB71400600FFA /* SideMenu */ = {
+		4649F1CA257AB71400600FFA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				4649F1C5257AB4EC00600FFA /* SideMenuManager.swift */,
@@ -72,7 +72,7 @@
 				4649F1EE257C566B00600FFA /* SideMenuSettings.swift */,
 				4649F1F2257C574600600FFA /* SideMenuViewController.swift */,
 			);
-			path = SideMenu;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4649F1CC257AB71B00600FFA /* Helper */ = {
@@ -105,7 +105,7 @@
 				4649F1C8257AB70700600FFA /* App Scene Delegate */,
 				46BF5EEB2577CD970054D04B /* ViewController.swift */,
 				4649F1E7257C543300600FFA /* MenuViewController.swift */,
-				4649F1CA257AB71400600FFA /* SideMenu */,
+				4649F1CA257AB71400600FFA /* Sources */,
 				46BF5EED2577CD970054D04B /* Main.storyboard */,
 				46BF5EF02577CD970054D04B /* Assets.xcassets */,
 				46BF5EF22577CD970054D04B /* LaunchScreen.storyboard */,
