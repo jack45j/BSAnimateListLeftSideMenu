@@ -23,7 +23,7 @@ class SideMenuViewController: UIViewController, SideMenuViewControllerProtocol {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		view.backgroundColor = .systemBackground
+		view.backgroundColor = .white
 		
 		stackView = UIStackView(arrangedSubviews: views)
 		stackView.alignment = .leading

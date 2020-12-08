@@ -27,13 +27,18 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 		return SideMenuManager.shared.configurations.presentationDuration
 	}
 	
-	func setupBlurView() {
+	private func setupBlurView() {
 		if blurView == nil {
 			let blurEffect = UIBlurEffect(style: .dark)
 			let blurview = UIVisualEffectView(effect: blurEffect)
 			blurview.frame = UIScreen.main.bounds
+			blurview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss(_:))))
 			self.blurView = blurview
 		}
+	}
+	
+	@objc private func dismiss(_ recognizer: UIGestureRecognizer) {
+		SideMenuManager.shared.dismiss()
 	}
 	
 	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

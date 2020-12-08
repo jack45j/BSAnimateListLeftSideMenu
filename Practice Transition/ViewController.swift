@@ -20,13 +20,20 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		setupUI()
 		views += [self.firstButton, self.firstLabel, self.thirdLabel,
 				  self.fourthLabel, self.fifthLabel, self.sixthLabel]
-		guard let vc = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? MenuViewController else { return }
-		SideMenuManager.shared.sideMenuViewController = vc
+//		guard let vc = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? MenuViewController else { return }
+//		SideMenuManager.shared.sideMenuViewController = vc
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.show(_:)))
-		view.backgroundColor = .systemBackground
+		
 		SideMenuManager.shared.addScreenEdgeGesture(to: self)
+		SideMenuManager.shared.views = views
+	}
+	
+	func setupUI() {
+		view.backgroundColor = .systemBackground
+		
 		firstButton.addTarget(self, action: #selector(self.dismissSM(_:)), for: .touchUpInside)
 		firstLabel.text = "First Label"
 		secondLabel.text = "Second Label"
@@ -34,10 +41,13 @@ class ViewController: UIViewController {
 		fourthLabel.text = "Fourth Label"
 		fifthLabel.text = "Fifth Label"
 		sixthLabel.text = "Sixth Label"
-		SideMenuManager.shared.views = views
-		print(SideMenuManager.shared.configurations.maxMenuWidth)
-		SideMenuManager.shared.configurations.menuWidthInScreenScale = 0.5
-		print(SideMenuManager.shared.configurations.maxMenuWidth)
+		
+		firstLabel.textColor = .systemGroupedBackground
+		secondLabel.textColor = .systemGroupedBackground
+		thirdLabel.textColor = .systemGroupedBackground
+		fourthLabel.textColor = .systemGroupedBackground
+		fifthLabel.textColor = .systemGroupedBackground
+		sixthLabel.textColor = .systemGroupedBackground
 	}
 	
 	@objc func dismissSM(_ sender: UIButton!) {
