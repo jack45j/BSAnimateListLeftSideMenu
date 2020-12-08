@@ -30,7 +30,7 @@
 		4649F1E7257C543300600FFA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4649F1EE257C566B00600FFA /* SideMenuSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuSettings.swift; sourceTree = "<group>"; };
 		4649F1F2257C574600600FFA /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
-		46BF5EE42577CD970054D04B /* Practice Transition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice Transition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46BF5EE42577CD970054D04B /* BSAnimateListLeftSideMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSAnimateListLeftSideMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BF5EE72577CD970054D04B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BF5EE92577CD970054D04B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		46BF5EEB2577CD970054D04B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		46BF5EDB2577CD970054D04B = {
 			isa = PBXGroup;
 			children = (
-				46BF5EE62577CD970054D04B /* Practice Transition */,
+				46BF5EE62577CD970054D04B /* BSAnimateListLeftSideMenu */,
 				46BF5EE52577CD970054D04B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,12 +94,12 @@
 		46BF5EE52577CD970054D04B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				46BF5EE42577CD970054D04B /* Practice Transition.app */,
+				46BF5EE42577CD970054D04B /* BSAnimateListLeftSideMenu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		46BF5EE62577CD970054D04B /* Practice Transition */ = {
+		46BF5EE62577CD970054D04B /* BSAnimateListLeftSideMenu */ = {
 			isa = PBXGroup;
 			children = (
 				4649F1C8257AB70700600FFA /* App Scene Delegate */,
@@ -112,15 +112,15 @@
 				46BF5EF52577CD970054D04B /* Info.plist */,
 				4649F1CC257AB71B00600FFA /* Helper */,
 			);
-			path = "Practice Transition";
+			path = BSAnimateListLeftSideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		46BF5EE32577CD970054D04B /* Practice Transition */ = {
+		46BF5EE32577CD970054D04B /* BSAnimateListLeftSideMenu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 46BF5EF82577CD970054D04B /* Build configuration list for PBXNativeTarget "Practice Transition" */;
+			buildConfigurationList = 46BF5EF82577CD970054D04B /* Build configuration list for PBXNativeTarget "BSAnimateListLeftSideMenu" */;
 			buildPhases = (
 				46BF5EE02577CD970054D04B /* Sources */,
 				46BF5EE12577CD970054D04B /* Frameworks */,
@@ -130,9 +130,9 @@
 			);
 			dependencies = (
 			);
-			name = "Practice Transition";
+			name = BSAnimateListLeftSideMenu;
 			productName = "Practice Transition";
-			productReference = 46BF5EE42577CD970054D04B /* Practice Transition.app */;
+			productReference = 46BF5EE42577CD970054D04B /* BSAnimateListLeftSideMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -149,7 +149,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46BF5EDF2577CD970054D04B /* Build configuration list for PBXProject "Practice Transition" */;
+			buildConfigurationList = 46BF5EDF2577CD970054D04B /* Build configuration list for PBXProject "BSAnimateListLeftSideMenu" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -162,7 +162,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				46BF5EE32577CD970054D04B /* Practice Transition */,
+				46BF5EE32577CD970054D04B /* BSAnimateListLeftSideMenu */,
 			);
 		};
 /* End PBXProject section */
@@ -346,7 +346,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79399T3H3C;
-				INFOPLIST_FILE = "Practice Transition/Info.plist";
+				INFOPLIST_FILE = BSAnimateListLeftSideMenu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "YCStudio.com.Practice-Transition";
@@ -366,7 +366,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79399T3H3C;
-				INFOPLIST_FILE = "Practice Transition/Info.plist";
+				INFOPLIST_FILE = BSAnimateListLeftSideMenu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "YCStudio.com.Practice-Transition";
@@ -380,7 +380,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46BF5EDF2577CD970054D04B /* Build configuration list for PBXProject "Practice Transition" */ = {
+		46BF5EDF2577CD970054D04B /* Build configuration list for PBXProject "BSAnimateListLeftSideMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46BF5EF62577CD970054D04B /* Debug */,
@@ -389,7 +389,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		46BF5EF82577CD970054D04B /* Build configuration list for PBXNativeTarget "Practice Transition" */ = {
+		46BF5EF82577CD970054D04B /* Build configuration list for PBXNativeTarget "BSAnimateListLeftSideMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46BF5EF92577CD970054D04B /* Debug */,

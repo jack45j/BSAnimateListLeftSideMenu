@@ -7,17 +7,17 @@
 
 import UIKit
 
-class SideMenuManager {
+public class SideMenuManager {
 	
-	static let shared = SideMenuManager()
-	var configurations: SettingsModel = SideMenuSettingsModel()
+	public static let shared = SideMenuManager()
+	public var configurations: SettingsModel = SideMenuSettingsModel()
 	
 	var sideMenuViewController: (SideMenuViewControllerProtocol & UIViewController)?
 	private var sideMenuNavigationController: UINavigationController?
 	var transitionController: SideMenuTransitionController? = SideMenuTransitionController()
 	var isPresenting: Bool = false
 	private var currentViewController: UIViewController?
-	var views: [UIView]!
+	var views: [UIView] = []
 }
 
 // MARK: Gesture
@@ -50,7 +50,7 @@ extension SideMenuManager {
 }
 
 // MARK: show/dismiss
-extension SideMenuManager {
+public extension SideMenuManager {
 	func show(from fromVC: UIViewController, interaction: Bool = false, completion: (() -> Void)? = nil) {
 		if sideMenuViewController == nil {
 			guard !views.isEmpty else {
