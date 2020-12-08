@@ -21,7 +21,7 @@ public class SideMenuManager {
 }
 
 // MARK: Gesture
-extension SideMenuManager {
+public extension SideMenuManager {
 	func addScreenEdgeGesture(to viewController: UIViewController) {
 		let gesture = UIScreenEdgePanGestureRecognizer(target: self,
 													   action: #selector(self.handleGesture(_:)))
@@ -74,7 +74,7 @@ public extension SideMenuManager {
 		show(from: fromVC, completion: completion)
 	}
 	
-	func show(from fromVC: UIViewController, stackView: UIStackView, interaction: Bool = false, completion: (() -> Void)? = nil) {
+	private func show(from fromVC: UIViewController, stackView: UIStackView, interaction: Bool = false, completion: (() -> Void)? = nil) {
 		show(from: fromVC, views: stackView.arrangedSubviews, completion: completion)
 	}
 	
