@@ -32,7 +32,6 @@ class SideMenuViewController: UIViewController, SideMenuViewControllerProtocol {
 		stackView.spacing = 24
 		
 		view.addSubview(stackView)
-		views.forEach { $0.tintColor = .systemFill }
 		
 		stackView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint(item: stackView!, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: -24).isActive = true

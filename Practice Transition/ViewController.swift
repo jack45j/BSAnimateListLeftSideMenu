@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-	let firstButton: UIButton! = UIButton(type: .close)
+	let firstButton: UIButton! = UIButton(type: .infoDark)
 	let firstLabel: UILabel! = UILabel()
 	let secondLabel: UILabel! = UILabel()
 	let thirdLabel: UILabel! = UILabel()
@@ -23,8 +23,8 @@ class ViewController: UIViewController {
 		setupUI()
 		views += [self.firstButton, self.firstLabel, self.thirdLabel,
 				  self.fourthLabel, self.fifthLabel, self.sixthLabel]
-//		guard let vc = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? MenuViewController else { return }
-//		SideMenuManager.shared.sideMenuViewController = vc
+		guard let vc = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? MenuViewController else { return }
+		SideMenuManager.shared.sideMenuViewController = vc
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.show(_:)))
 		
 		SideMenuManager.shared.addScreenEdgeGesture(to: self)
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
 	}
 	
 	func setupUI() {
-		view.backgroundColor = .systemBackground
+		view.backgroundColor = .white
 		
 		firstButton.addTarget(self, action: #selector(self.dismissSM(_:)), for: .touchUpInside)
 		firstLabel.text = "First Label"
@@ -42,12 +42,12 @@ class ViewController: UIViewController {
 		fifthLabel.text = "Fifth Label"
 		sixthLabel.text = "Sixth Label"
 		
-		firstLabel.textColor = .systemGroupedBackground
-		secondLabel.textColor = .systemGroupedBackground
-		thirdLabel.textColor = .systemGroupedBackground
-		fourthLabel.textColor = .systemGroupedBackground
-		fifthLabel.textColor = .systemGroupedBackground
-		sixthLabel.textColor = .systemGroupedBackground
+		firstLabel.textColor = .black
+		secondLabel.textColor = .black
+		thirdLabel.textColor = .black
+		fourthLabel.textColor = .black
+		fifthLabel.textColor = .black
+		sixthLabel.textColor = .black
 	}
 	
 	@objc func dismissSM(_ sender: UIButton!) {
