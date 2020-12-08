@@ -72,8 +72,7 @@
 				4649F1EE257C566B00600FFA /* SideMenuSettings.swift */,
 				4649F1F2257C574600600FFA /* SideMenuViewController.swift */,
 			);
-			name = Sources;
-			path = BSAnimateListLeftSideMenu/Sources;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4649F1CC257AB71B00600FFA /* Helper */ = {
