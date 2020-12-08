@@ -72,7 +72,8 @@
 				4649F1EE257C566B00600FFA /* SideMenuSettings.swift */,
 				4649F1F2257C574600600FFA /* SideMenuViewController.swift */,
 			);
-			path = Sources;
+			name = Sources;
+			path = ../Sources;
 			sourceTree = "<group>";
 		};
 		4649F1CC257AB71B00600FFA /* Helper */ = {
@@ -86,7 +87,6 @@
 		46BF5EDB2577CD970054D04B = {
 			isa = PBXGroup;
 			children = (
-				4649F1CA257AB71400600FFA /* Sources */,
 				46BF5EE62577CD970054D04B /* BSAnimateListLeftSideMenu */,
 				46BF5EE52577CD970054D04B /* Products */,
 			);
@@ -103,6 +103,7 @@
 		46BF5EE62577CD970054D04B /* BSAnimateListLeftSideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				4649F1CA257AB71400600FFA /* Sources */,
 				4649F1C8257AB70700600FFA /* App Scene Delegate */,
 				46BF5EEB2577CD970054D04B /* ViewController.swift */,
 				4649F1E7257C543300600FFA /* MenuViewController.swift */,
@@ -112,7 +113,7 @@
 				46BF5EF52577CD970054D04B /* Info.plist */,
 				4649F1CC257AB71B00600FFA /* Helper */,
 			);
-			path = BSAnimateListLeftSideMenu;
+			name = BSAnimateListLeftSideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,7 +347,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79399T3H3C;
-				INFOPLIST_FILE = BSAnimateListLeftSideMenu/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "YCStudio.com.Practice-Transition";
@@ -366,7 +367,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79399T3H3C;
-				INFOPLIST_FILE = BSAnimateListLeftSideMenu/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "YCStudio.com.Practice-Transition";
