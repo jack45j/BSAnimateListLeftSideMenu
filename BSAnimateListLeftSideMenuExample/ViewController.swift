@@ -26,13 +26,15 @@ class ViewController: UIViewController {
 		guard let vc = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? MenuViewController else { return }
 		SideMenuManager.shared.sideMenuViewController = vc
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.show(_:)))
-		
 		SideMenuManager.shared.addScreenEdgeGesture(to: self)
 		SideMenuManager.shared.views = views
 	}
 	
 	func setupUI() {
+		title = "BSLeftSideMenu"
 		view.backgroundColor = .white
+		navigationController?.navigationBar.tintColor = .black
+		navigationController?.navigationBar.isTranslucent = false
 		
 		firstButton.addTarget(self, action: #selector(self.dismissSM(_:)), for: .touchUpInside)
 		firstLabel.text = "First Label"

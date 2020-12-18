@@ -28,7 +28,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Practice_Transition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BSAnimateListLeftSideMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,53 +44,73 @@
         <!--Menu View Controller-->
         <scene sceneID="LWw-tE-rWD">
             <objects>
-                <viewController storyboardIdentifier="MenuVC" id="pkk-fO-sEY" customClass="MenuViewController" customModule="Practice_Transition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuVC" id="pkk-fO-sEY" customClass="MenuViewController" customModule="BSAnimateListLeftSideMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZJU-qY-8Z4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-ba-Kv5">
-                                <rect key="frame" x="279" y="610" width="75" height="252"/>
+                                <rect key="frame" x="251" y="551.5" width="103" height="274"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69T-d4-BVk">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="22"/>
-                                        <state key="normal" title="Button" image="scribble.variable" catalog="system"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="e95-rK-lKf"/>
+                                            <constraint firstAttribute="width" secondItem="69T-d4-BVk" secondAttribute="height" id="rqe-TH-BKJ"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="scribble" catalog="system"/>
                                         <connections>
                                             <action selector="buttonTap:" destination="pkk-fO-sEY" eventType="touchUpInside" id="rfz-5D-OR7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7d-IX-2BN">
-                                        <rect key="frame" x="0.0" y="38" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="60" width="38" height="30"/>
+                                        <state key="normal" title="Login"/>
                                         <connections>
                                             <segue destination="Tju-am-dVo" kind="presentation" id="LYl-g2-SzC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daW-Ma-j1l">
-                                        <rect key="frame" x="0.0" y="84" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="106" width="85" height="30"/>
+                                        <state key="normal" title="Remove Ads"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRG-kH-xNr">
-                                        <rect key="frame" x="0.0" y="130" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="152" width="103" height="30"/>
+                                        <state key="normal" title="Send feedback"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqB-bC-0yp">
-                                        <rect key="frame" x="0.0" y="176" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="198" width="101" height="30"/>
+                                        <state key="normal" title="Share this App"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P8-8H-bAB">
-                                        <rect key="frame" x="0.0" y="222" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="244" width="77" height="30"/>
+                                        <state key="normal" title="Contact Us"/>
                                     </button>
                                 </subviews>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTZ-E4-ZZ0">
+                                <rect key="frame" x="20" y="841.5" width="57" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1x-mG-o4y">
+                                <rect key="frame" x="356.5" y="841.5" width="37.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lXg-jG-gLu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="P1x-mG-o4y" firstAttribute="bottom" secondItem="lXg-jG-gLu" secondAttribute="bottom" id="3tQ-WI-JCd"/>
+                            <constraint firstItem="fTZ-E4-ZZ0" firstAttribute="bottom" secondItem="lXg-jG-gLu" secondAttribute="bottom" id="GM9-eK-fhf"/>
+                            <constraint firstItem="fTZ-E4-ZZ0" firstAttribute="leading" secondItem="lXg-jG-gLu" secondAttribute="leading" constant="20" id="RIr-ob-iSh"/>
+                            <constraint firstItem="lXg-jG-gLu" firstAttribute="trailing" secondItem="P1x-mG-o4y" secondAttribute="trailing" constant="20" id="Zye-k1-i0w"/>
                             <constraint firstItem="lXg-jG-gLu" firstAttribute="trailing" secondItem="DQA-ba-Kv5" secondAttribute="trailing" constant="60" id="hj9-vP-i7p"/>
-                            <constraint firstItem="DQA-ba-Kv5" firstAttribute="bottom" secondItem="lXg-jG-gLu" secondAttribute="bottom" id="zXv-id-Bis"/>
+                            <constraint firstItem="P1x-mG-o4y" firstAttribute="top" secondItem="DQA-ba-Kv5" secondAttribute="bottom" constant="16" id="iM3-FM-KVw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -118,7 +138,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="scribble.variable" catalog="system" width="128" height="118"/>
+        <image name="scribble" catalog="system" width="128" height="118"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,7 +8,7 @@
 import UIKit
 
 class SideMenuNavigationViewController: UINavigationController {
-	override  var transitioningDelegate: UIViewControllerTransitioningDelegate? {
+	override var transitioningDelegate: UIViewControllerTransitioningDelegate? {
 		get { SideMenuManager.shared.transitionController }
 		set {}
 	}

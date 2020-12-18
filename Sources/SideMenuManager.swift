@@ -7,12 +7,12 @@
 
 import UIKit
 
-public class SideMenuManager {
+public final class SideMenuManager {
 	
 	public static let shared = SideMenuManager()
 	public var configurations: SettingsModel = SideMenuSettingsModel()
 	
-	var sideMenuViewController: (SideMenuViewControllerProtocol & UIViewController)?
+	public var sideMenuViewController: (SideMenuViewControllerProtocol & UIViewController)?
 	private var sideMenuNavigationController: UINavigationController?
 	var transitionController: SideMenuTransitionController? = SideMenuTransitionController()
 	var isPresenting: Bool = false
@@ -21,8 +21,8 @@ public class SideMenuManager {
 }
 
 // MARK: Gesture
-public extension SideMenuManager {
-	func addScreenEdgeGesture(to viewController: UIViewController) {
+extension SideMenuManager {
+	public func addScreenEdgeGesture(to viewController: UIViewController) {
 		let gesture = UIScreenEdgePanGestureRecognizer(target: self,
 													   action: #selector(self.handleGesture(_:)))
 		gesture.edges = .left
@@ -30,7 +30,7 @@ public extension SideMenuManager {
 		if currentViewController != viewController { currentViewController = viewController }
 	}
 	
-	@objc func handleGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
+	@objc private func handleGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
 		switch gestureRecognizer.state {
 		case .began:
 			show(from: currentViewController!, views: views)
@@ -42,7 +42,13 @@ public extension SideMenuManager {
 			let progress = distance / width
 			transitionController?.animationController?.animate(with: progress)
 		case .ended:
-			transitionController?.animationController?.finishAnimate()
+			let width = configurations.menuWidth
+			let distance = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).x
+			let progress = distance / width
+			transitionController?.animationController?.finishAnimate(isReversed: progress < 0.5)
+			if progress < 0.5 {
+				sideMenuNavigationController?.dismiss(animated: false, completion: { self.isPresenting = false })
+			}
 			transitionController?.animationController?.isInteraction = false
 		default: return
 		}

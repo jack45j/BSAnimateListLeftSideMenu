@@ -19,7 +19,10 @@ class SideMenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
 		}
 	}
 	
-	func finishAnimate() {
+	func finishAnimate(isReversed: Bool = false) {
+		animators.forEach {
+			$0.isReversed = isReversed
+		}
 		animators.forEach { $0.continueAnimation(withTimingParameters: nil, durationFactor: 0) }
 	}
 	
